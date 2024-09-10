@@ -1,0 +1,139 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Table Styles */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #aad7d4;
+    color: #333;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(even) td {
+    background-color: #e8f4f3;
+}
+
+/* Responsive Styles for Mobile Devices */
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+
+    h1 {
+        font-size: 1.2em;
+    }
+}
+
+/* Review Section Styles */
+#reviews {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#reviews h2 {
+    text-align: center;
+    color: #333;
+}
+
+#review-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#review-form label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#review-form input, #review-form textarea {
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#review-form button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #aad7d4;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+}
+
+#review-form button:hover {
+    background-color: #9dc3c1;
+}
+
+#review-list {
+    width: 80%;
+    margin: 20px auto;
+}
+
+#review-list h2 {
+    text-align: center;
+    color: #333;
+}
+
+#reviews-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#reviews-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#reviews-list li:last-child {
+    border-bottom: none;
+}

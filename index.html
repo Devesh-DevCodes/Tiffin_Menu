@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiffin Service Menu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Tiffin Service Menu</h1>
+
+    <table>
+        <tr>
+            <th>Day</th>
+            <th>Breakfast</th>
+            <th>Lunch</th>
+            <th>Dinner</th>
+        </tr>
+        <tr>
+            <td>Monday</td>
+            <td>Parantha + Aloo Sabji</td>
+            <td>Rajma + Aloo Gobhi/Tauri + Roti + Rice</td>
+            <td>Paneer + Aloo Mix Veg + Roti + Rice</td>
+        </tr>
+        <tr>
+            <td>Tuesday</td>
+            <td>Daliya</td>
+            <td>Kadi Pakoda + Aloo Jeera + Roti + Rice</td>
+            <td>Arhar Dal + Kaddu + Puri + Rice</td>
+        </tr>
+        <tr>
+            <td>Wednesday</td>
+            <td>Aloo Pyaz Parantha + Achar</td>
+            <td>Kali Masoor Dal + Lobiya Aloo Sabji + Roti + Rice</td>
+            <td>Lauki Chana + Aloo Tamatar + Roti + Rice</td>
+        </tr>
+        <tr>
+            <td>Thursday</td>
+            <td>Poha</td>
+            <td>Dal Makhani + Mix Veg/Lauki Sabji + Roti + Rice</td>
+            <td>Rajma + Turai + Roti + Rice</td>
+        </tr>
+        <tr>
+            <td>Friday</td>
+            <td>Parantha + Sabji</td>
+            <td>Arhar Dal + Aloo Baigan Sabji + Roti + Rice</td>
+            <td>Masoor Dal + Chana Aloo Sabji + Roti + Rice</td>
+        </tr>
+        <tr>
+            <td>Saturday</td>
+            <td>Chana/Halwa</td>
+            <td>Khichdi/Veg Tahri + Achar + Salad</td>
+            <td>Arhar Dal + Lauki Sabji + Roti + Rice</td>
+        </tr>
+        <tr>
+            <td>Sunday</td>
+            <td>Macaroni</td>
+            <td>Chana Dal + Soyabean Aloo + Roti + Rice</td>
+            <td>Chole + Aloo Jeera + Puri + Rice</td>
+        </tr>
+    </table>
+
+    <section id="reviews">
+        <h2>Leave a Review</h2>
+        <form id="review-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="review">Review:</label>
+            <textarea id="review" name="review" rows="4" required></textarea>
+
+            <button type="submit">Submit Review</button>
+        </form>
+    </section>
+
+    <section id="review-list">
+        <h2>Reviews</h2>
+        <ul id="reviews-list">
+            <!-- Reviews will be added here -->
+        </ul>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
