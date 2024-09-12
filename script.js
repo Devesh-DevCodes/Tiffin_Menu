@@ -1,3 +1,129 @@
+
+// Import Firebase SDK modules using ES6 syntax
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import {
+  getDatabase,
+  ref,
+  push,
+  onValue,
+  remove,
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+// Firebase configuration
+const appSettings = {
+  databaseURL:
+    "https://tiffin-menu-5899d-default-rtdb.asia-southeast1.firebasedatabase.app/",
+};
+
+// Initialize Firebase app
+const app = initializeApp(appSettings);
+// Get a reference to the database
+const database = getDatabase(app); // CONNECTS project with firebase
+// Reference to the 'reviews' section in the database
+let itemsInDB = ref(database, "Tiffin-Service"); // create reference in database
+
+
+// DOM elements
+const form = document.getElementById("review-form");
+const getname = document.getElementById("name");
+const getreview = document.getElementById("review");
+let submit = document.getElementById("submit");
+let reviews_list = document.getElementById("reviews-list");
+
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.style.display = "block";
+  setTimeout(() => {
+    toast.style.display = "none";
+  }, 4000); // Hide after 3 seconds
+}
+
+
+submit.addEventListener("click", function () {
+  const name = getname.value.trim();
+  const review = getreview.value.trim();
+
+  // Validate inputs
+  if (name && review) {
+    // Push the review to Firebase Realtime Database
+    push(itemsInDB, {
+      name: name,
+      review: review,
+    });
+
+    console.log(`${name} : ${review} ; pushed successfully!`);
+    // clearInputObj();
+    form.reset(); // Clear form fields after submission
+  }
+  // Alert if name or review is missing
+  else {
+    // Alert if name or review is missing
+    if (!name) {
+      // alert("Enter Name!!");
+      showToast("Enter Some Review!!");
+    }
+    if (!review) {
+      showToast("Enter Some Review!!");
+    }
+  }
+});
+
+// Real-time listener to fetch reviews from Firebase
+onValue(itemsInDB, function (snapshot) {
+  if (!snapshot.exists()) {
+    console.log("No item here....");
+    reviews_list.innerHTML = `<h1 class="heading"> No Reviews ✅ </h1>`;
+    return; // Exit early if no data
+  }
+
+  const reviews = snapshot.val();
+  const arrTask = Object.entries(reviews); // Convert to array of [id, value]
+  console.log(arrTask);
+  // console.log(snapshot.val());
+
+  clearListEle(); // Clear the existing list
+
+  // for (let i = 0; i < arrTask.length; i++) {
+  // Loop through the reviews array in reverse order
+  for (let i = arrTask.length - 1; i >= 0; i--) {
+    const [id, value] = arrTask[i]; // Destructure [id, value]
+    console.log("DevCodes value : ", value);
+    appendReviewListEle(value);
+
+    // let currentEle = arrTask[i]; // arr of [id,value]
+    // console.log("devcodes value ", currentEle[1]);
+    // let currentTask_id = currentEle[0];
+    // let currentTask_value = currentEle[1];
+    // appendReviewListEle(currentEle[1]);
+  }
+});
+
+
+// function clearInputObj() {
+//   getname.value = null;
+//   getreview.value = null;
+// }
+
+// Clear the reviews list
+function clearListEle() {
+  reviews_list.innerHTML = "";
+}
+
+// Append review item to the list
+function appendReviewListEle(item) {
+  const listItem = document.createElement("li");
+  listItem.innerHTML = `<strong>${item.name}</strong>: ${item.review}`;
+  reviews_list.appendChild(listItem);
+  console.log(item.name);
+}
+
+
+
+
+/**
+// local storage
+
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('review-form');
     const reviewsList = document.getElementById('reviews-list');
@@ -40,3 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial load
     loadReviews();
 });
+
+
+
+ */
