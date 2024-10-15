@@ -1,5 +1,6 @@
 {
     "version": 2,
+    "public":".",
     "builds": [
       {
         "src": "index.html",
