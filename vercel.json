@@ -1,6 +1,5 @@
 {
     "version": 2,
-    "public":".",
     "builds": [
       {
         "src": "index.html",
@@ -16,6 +15,14 @@
       }
     ],
     "routes": [
+      {
+        "src": "/styles.css",
+        "dest": "/styles.css"
+      },
+      {
+        "src": "/scripts.js",
+        "dest": "/scripts.js"
+      },
       {
         "src": "/(.*)",
         "dest": "/index.html"
