@@ -1,4 +1,3 @@
-
 // Import Firebase SDK modules using ES6 syntax
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import {
@@ -10,13 +9,19 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
 // Firebase configuration
-const appSettings = {
-  databaseURL:
-    "https://tiffin-menu-5899d-default-rtdb.asia-southeast1.firebasedatabase.app/",
+const firebaseConfig = {
+  apiKey: "AIzaSyAr8Tk3V_qV5MPMKSX3UGaPk0VJ1Yj36HE",
+  authDomain: "tiffin-menu-5899d.firebaseapp.com",
+  databaseURL: "https://tiffin-menu-5899d-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "tiffin-menu-5899d",
+  storageBucket: "tiffin-menu-5899d.appspot.com",
+  messagingSenderId: "799955494909",
+  appId: "1:799955494909:web:5a32a89ccad63567599b94",
+  measurementId: "G-WLR6PRDWFE"
 };
 
 // Initialize Firebase app
-const app = initializeApp(appSettings);
+const app = initializeApp(firebaseConfig);
 // Get a reference to the database
 const database = getDatabase(app); // CONNECTS project with firebase
 // Reference to the 'reviews' section in the database
